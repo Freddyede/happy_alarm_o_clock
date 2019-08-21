@@ -2,8 +2,8 @@
 
 ## Chose à faire FRONT-END :
 * Git commit all
-* Creating Component React-Native : Heure
-* Creating Component React-Native : Login
+* Creating Screens React-Native : Heure
+* Creating Screens React-Native : Login
 * Git commit all
 
 ## Chose à faire BACK-END CONTROLLERS :
