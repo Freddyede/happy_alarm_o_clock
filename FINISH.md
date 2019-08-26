@@ -1,14 +1,10 @@
 # TRAVAUX TERMINÉ :
 
 ## Choses faîtes FRONT-END :
-* Create route
-
-* Create screens 
-    (HomeScreen,RegisterScreen)
-
-* Create base git
-
-* Create branch development
+* Create route;
+* Screens RegisterScreen (not finish fonctionnality);
+* Create base git;
+* Create branch development;
 
 ## Choses faîtes BACK-END CONTROLLERS :
 <!-- ADDING FINISHED CONTROLLERS WITH METHODS -->
