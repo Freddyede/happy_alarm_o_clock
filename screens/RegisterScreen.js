@@ -1,25 +1,28 @@
-import { Input, Button } from 'react-native-elements';
 import React from 'react';
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
-
-
+import axios from 'axios';
+import { Input, Button } from 'react-native-elements';
+//import { home } from '../API/apiresource';
+import { View, ScrollView, Text } from 'react-native';
+import { stylesRegister } from '../css/register/register.css';
 export class RegisterScreen extends React.Component {
     constructor() {
         super();
         state = {
             name: '',
             firstname: '',
-            tel: '',
-            age: Number
+            tel: ''
         }
     }
-    submit() {
-        alert(
-            'nom : ' + this.state.name + '\n' +
-            'prenom : ' + this.state.firstname + '\n' +
-            'tel : ' + this.state.tel + '\n' +
-            'age : ' + this.state.age + ' ans'
-        );
+    async submit() {
+        const obj = {
+            name: this.state.name,
+            firstname: this.state.firstname,
+            tel: this.state.tel
+        };
+        const objFormatJSON = JSON.stringify(obj);
+        alert(objFormatJSON);
+        // Create axios method for sending data to back
+        return axios.get('http://127.0.0.1:8000/home').then(response => alert(response));
     }
     validate(text, type) {
         if (type == 'name') {
@@ -31,9 +34,6 @@ export class RegisterScreen extends React.Component {
         if (type == 'tel') {
             this.setState({ tel: text });
         }
-        if (type == 'age') {
-            this.setState({ age: text });
-        }
     }
     render() {
         return (
@@ -44,24 +44,24 @@ export class RegisterScreen extends React.Component {
                         fontSize: 20,
                         fontWeight: "bold"
                     }}>
-                        Inscription :
+                        Happy Alarm Oclock-Inscription :
                     </Text>
                 </View >
-                <View>
+                <View style={stylesRegister.viewStyle}>
                     <Input
                         inputStyle={{ textAlign: "center" }}
                         placeholder='NAME'
                         onChangeText={(text) => this.validate(text, 'name')}
                     />
                 </View>
-                <View>
-                    <Input
+                <View style={stylesRegister.viewStyle}>
+                    < Input
                         inputStyle={{ textAlign: "center" }}
                         placeholder='FIRSTNAME'
                         onChangeText={(text) => this.validate(text, 'firstname')}
                     />
                 </View>
-                <View>
+                <View style={stylesRegister.viewStyle}>
                     <Input
                         inputStyle={{ textAlign: "center" }}
                         placeholder='N° TÉLÉPHONE'
@@ -69,24 +69,13 @@ export class RegisterScreen extends React.Component {
                         onChangeText={(text) => this.validate(text, 'tel')}
                     />
                 </View>
-                <View style={{ marginBottom: '20%' }}>
-                    <Input
-                        inputStyle={{ textAlign: "center" }}
-                        placeholder='AGE'
-                        keyboardType="numeric"
-                        onChangeText={(text) => this.validate(text, 'age')}
-                    />
-                </View>
-                <View>
+                <View style={stylesRegister.buttonView}>
                     <Button
+                        buttonStyle={stylesRegister.styleButton}
                         title="Submit"
                         onPress={() => this.submit()} />
                 </View>
-
             </ScrollView >
         );
     }
 }
-
-const style = StyleSheet.create({
-});

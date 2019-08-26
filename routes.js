@@ -6,11 +6,9 @@ const MainNavigator = createDrawerNavigator(
     {
         Accueil: {
             screen: HomeScreen,
-            path: '/'
         },
         Inscription: {
             screen: RegisterScreen,
-            path: '/register'
         },
     });
 
